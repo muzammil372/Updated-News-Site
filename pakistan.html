@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+<html lang="ur">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jinnah Time - خبریںv</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo-container">
+        <button id="menuBtn" class="menu-btn" aria-label="مینیو کھولیں">☰</button>
+    <img src="logo-removebg-preview.png" alt="Jinnah Times Logo" />
+  </div>
+  <nav class="main-navbar">
+    <ul>
+      <li><a href="index.html">صفحۂ اول</a></li>
+      <li><a href="tazatarin.html">تازہ ترین</a></li>
+
+      <li><a href="pakistan.html"  class="active">پاکستان</a></li>
+      <li><a href="#">انٹرنیشنل</a></li>
+      <li><a href="#">کھیل</a></li>
+      <li><a href="#">شوبز</a></li>
+      <li><a href="#">ویڈیوز</a></li>
+      <li><a href="#">مزید</a></li>
+    </ul>
+    <!-- Hamburger for mobile only -->
+
+  </nav>
+</header>
+
+<!-- Sidebar for mobile/tablet only -->
+<aside class="geo-sidebar" id="mobileSidebar">
+  <div class="geo-sidebar-header">
+    <img src="logo-removebg-preview.png" alt="Geo News Logo" class="geo-logo" />
+    <span class="geo-title">جیو نیوز</span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#" class="active">صفحۂ اول</a></li>
+      <li><a href="#">خونہ جنگ</a></li>
+      <li><a href="#">سیلاب</a></li>
+      <li><a href="#">تازہ ترین</a></li>
+      <li><a href="#">فیک چیک</a></li>
+      <li><a href="#">پاکستان</a></li>
+      <li><a href="#">دنیا</a></li>
+      <li><a href="#">کھیل</a></li>
+      <li><a href="#">انٹرٹینمنٹ</a></li>
+      <li><a href="#">کالمز</a></li>
+      <li><a href="#">صحت</a></li>
+    </ul>
+  </nav>
+</aside>
+<div id="sidebarOverlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+ <h1>پاکستان</h1>
+  <div id="news-container"></div>
+
+  <script src="script.js"></script>
+  <script>
+    loadNewsByCategory("پاکستان");
+  </script>
+
+<footer>
+  <div class="footer-social-icons">
+    <a href="#" target="_blank" title="TikTok"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" /></a>
+    <a href="#" target="_blank" title="Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" /></a>
+    <a href="#" target="_blank" title="YouTube"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" /></a>
+    <a href="#" target="_blank" title="Instagram"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" /></a>
+  </div>
+
+</body>
+</html>

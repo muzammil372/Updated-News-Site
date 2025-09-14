@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8" />
+  <title>News Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="news-detail"></div>
+  <script>
+    // Get slug from URL
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+
+    fetch('news.json')
+      .then(response => response.json())
+      .then(data => {
+        const news = data.find(n => n.slug === slug);
+        const container = document.getElementById('news-detail');
+        if (news) {
+          container.innerHTML = `
+            <div class="news-card">
+              <img src="${news.image}" alt="news image" />
+              <div class="news-content">
+                <h2>${news.title}</h2>
+                <p>${news.content}</p>
+                <small>${news.date}</small>
+                <a href="index.html">Back to Home</a>
+              </div>
+            </div>
+          `;
+        } else {
+          container.innerHTML = "<p>News not found.</p>";
+        }
+      });
+  </script>
+</body>
+</html>

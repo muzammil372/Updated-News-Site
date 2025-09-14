@@ -1,6 +1,10 @@
 /* Clean Geo-like Urdu news CSS (RTL), responsive, no syntax errors */
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap');
+body{
+  padding: 0;
+  margin: 0;
+}
 
 :root{
   --brand:#be181a;
@@ -116,7 +120,7 @@ html,body{
   background:rgba(255,255,255,0.04);
 }
 
-/* Overlay for mobile */
+Overlay for mobile
 .sidebar-overlay{
   display:none;
   position:fixed;
@@ -290,105 +294,78 @@ html,body{
 }
 
 /* Sidebar (mobile/tablet only) */
-.geo-sidebar,
+/* --- Sidebar (Geo-style) --- */
+.geo-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0; /* RTL ke liye right */
+  width: 80vw;
+  max-width: 320px;
+  height: 100vh;
+  background: linear-gradient(180deg, rgba(20,30,40,0.98), rgba(8,12,16,0.95));
+  color: #fff;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.18);
+  z-index: 1100;
+  transform: translateX(100%);
+  transition: transform 320ms ease;
+  display: flex;
+  flex-direction: column;
+}
+.geo-sidebar.open { transform: translateX(0); }
+
+/* Overlay */
 .sidebar-overlay {
   display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1050;
 }
+.sidebar-overlay.visible { display: block; }
 
+/* Desktop navbar */
+.main-navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.main-navbar li { margin: 0; }
+.main-navbar a {
+  display: block;
+  color: #fff;
+  font-size: 1.1em;
+  text-decoration: none;
+  padding: 12px 22px;
+}
+.main-navbar a.active,
+.main-navbar a:hover { background: #a80f12; }
+
+/* Hide hamburger on desktop */
+.menu-btn { display: none; }
+
+/* Mobile view */
 @media (max-width: 900px) {
-  .main-navbar ul {
-    flex-direction: column;
-    background: #be181a;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    display: none;
-  }
-  .main-navbar.open ul {
-    display: flex;
-  }
-  .menu-btn {
-    display: inline-block;
-  }
-  .geo-sidebar {
-    display: block;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 80vw;
-    max-width: 340px;
-    height: 100vh;
-    background: linear-gradient(180deg, rgba(20,30,40,0.98), rgba(8,12,16,0.95));
-    color: #fff;
-    box-shadow: -4px 0 24px rgba(0,0,0,0.18);
-    z-index: 1100;
-    transform: translateX(100%);
-    transition: transform 320ms ease;
-  }
-  .geo-sidebar.open {
-    transform: translateX(0);
-  }
-  .sidebar-overlay {
-    display: block;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 1050;
-    opacity: 1;
-    pointer-events: auto;
-  }
+  .main-navbar ul { display: none; }   /* hide normal nav */
+  .menu-btn { display: inline-block; } /* show hamburger */
 }
 
-/* Hide sidebar/hamburger on desktop */
+
+/* Desktop adjustments: ensure sidebar always visible */
+/* Desktop view: sirf normal navbar dikhna chahiye */
 @media (min-width: 901px) {
   .geo-sidebar,
   .sidebar-overlay,
   .menu-btn {
-    display: none !important;
+    display: none !important; /* Desktop par sidebar aur hamburger bilkul na dikhain */
   }
+
   .main-navbar ul {
-    display: flex !important;
+    display: flex !important; /* Desktop ka normal navbar visible rahe */
     position: static;
     background: none;
   }
-}
-
-/* Responsive behavior: mobile <=900px */
-@media (max-width:900px){
-  .menu-btn{ display:inline-flex; }
-
-  /* Sidebar hidden by default on mobile */
-  .geo-sidebar{
-    transform:translateX(100%);
-    width:84vw;
-    max-width:420px;
-    height:100vh;
-  }
-  .geo-sidebar.open{ transform:translateX(0); }
-
-  /* Overlay visible when sidebar opens */
-  .sidebar-overlay{ display:block; }
-
-  /* News grid becomes single column */
-  .news-grid{
-    grid-template-columns:1fr;
-    gap:1rem;
-  }
-  .news-card.featured{
-    grid-column:1 / -1;
-    grid-row:auto;
-    height:auto;
-  }
-
-  .main-wrapper{ padding:0 8px; }
-}
-
-/* Desktop adjustments: ensure sidebar always visible */
-@media (min-width:901px){
-  .sidebar-overlay{ display:none !important; opacity:0 !important; pointer-events:none !important; }
-  .geo-sidebar{ transform:translateX(0) !important; }
 }
 
 /* Clean scrollbar styles */
@@ -419,4 +396,32 @@ body::-webkit-scrollbar-thumb {
 }
 .back-btn:hover {
   text-decoration: underline;
+}
+footer {
+  background-color: #b30000; /* header جیسا red */
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-social-icons {
+  display: flex;
+  justify-content: center; /* center میں لانے کے لیے */
+  gap: 20px; /* icons کے درمیان space */
+}
+
+.footer-social-icons img {
+  width: 30px;
+  height: 30px;
+  filter: invert(1); /* icons کو white دکھانے کے لیے */
+  transition: transform 0.3s;
+}
+
+.footer-social-icons img:hover {
+  transform: scale(1.2); /* hover effect */
+}
+
+/* extra fix for unwanted white line */
+body, html {
+  margin: 0;
+  padding: 0;
 }

@@ -89,3 +89,21 @@ newsCard.classList.add("news-card", "small");
     .catch(error => console.error("Error loading news:", error));
 }
 
+// =======================
+// Mobile Sidebar Toggle
+// =======================
+const menuBtn = document.querySelector(".menu-btn");
+const sidebar = document.querySelector(".geo-sidebar");
+const overlay = document.querySelector(".sidebar-overlay");
+
+if (menuBtn && sidebar && overlay) {
+  menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    overlay.classList.toggle("visible");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("visible");
+  });
+}

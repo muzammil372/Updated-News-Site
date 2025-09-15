@@ -85,9 +85,9 @@ html,body{
   border-bottom:1px solid #222;
 }
 .geo-logo{
-  width:38px;
-  height:38px;
-  margin-left:12px;
+  width: 150px;
+  height:100px;
+  margin-right:50px;
 }
 .geo-title{
   font-size:2em;
